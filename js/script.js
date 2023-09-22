@@ -1,9 +1,7 @@
 
-
 // 1.
 const containerSlider = document.querySelector(".images");
 const secondSlider = document.querySelector(".second-carousel");
-
 
 
 // 2.
@@ -30,8 +28,6 @@ const imagesObj = [
       text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
   }
 ];
-
-
 
 
 // 3.
@@ -86,9 +82,7 @@ buttonTop.addEventListener("click", function(){
 
 
 
-
-
-// ********** funzioni **********************
+// ********** functions **********************
 
 // 7.
 

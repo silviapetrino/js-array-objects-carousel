@@ -1,0 +1,64 @@
+
+.main {
+  height: 100vh;
+}
+
+.container {
+  width: 50%;
+  height: 60%;
+}
+
+.slider {
+  position: relative;
+}
+
+.images {
+  position: relative;
+}
+
+.second-carousel img.active {
+  border: 3px solid rgb(83, 248, 6);
+}
+
+.second-carousel {
+  position: absolute;
+  top: 0;
+  left: 75%;
+}
+
+
+.h-20 {
+  height: 20%;
+}
+
+
+.btn_sp {
+  width: 45px;
+  height: 35px;
+  position: absolute;
+  left: 85%;
+  transform: translateY( 50%, 50%);
+  background-color: rgba(250, 3, 3, 0.7);
+  border: 3px solid black;
+  color: rgb(49, 46, 46);
+  transition: all .2s;
+}
+
+
+.btn_sp:hover {
+  background-color: black;
+  color: white;
+}
+
+ .btn_sp.button-top {
+    bottom: 90%;
+  }
+
+  .btn_sp.button-bottom {
+    top: 90%;
+  }
+
+
+  .hide {
+    display: none;
+  }

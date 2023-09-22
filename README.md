@@ -16,7 +16,7 @@ ________________________________
 
 // 2. creo un array di oggetti;
 
-// 3. Con l'utilizzo del ciclo for Each, stampo gli oggetti in pagina;
+// 3. Con l'utilizzo del ciclo for Each, stampo gli oggetti in pagina dopo aver aggiungo gli elementi una struttura card (img+txt);
 
 // 4. introduco il contatore per tener traccia della posizione dell'immagine;
 

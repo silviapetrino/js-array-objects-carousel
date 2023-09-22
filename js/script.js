@@ -84,12 +84,12 @@ let interval;
 
 buttonBottom.addEventListener("click", function(){
  clearInterval(interval);
- interval = setInterval(nextImage, 2000);
+ interval = setInterval(nextImage, 1000);
 
 });
 
 buttonTop.addEventListener("click", function(){
-  
+
 });
 
 

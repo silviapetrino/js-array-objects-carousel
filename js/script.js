@@ -1,14 +1,4 @@
 
-// 1. prendo l'elemento in cui andrò a stampare l'array;
-// 2. creo un array di oggetti;
-// 3. Con l'utilizzo del ciclo for Each, stampo gli oggetti in pagina dopo aver aggiungo gli elementi una struttura card (img+txt);
-// 4. introduco il contatore per tener traccia della posizione dell'immagine;
-// 5. rimuovo la classe hide dalla prima immagine del carosello, aggiungo la classe active a all'immagine della thumb;
-// 6. inserisco i bottoni;
-// 7. creo le funzioni per il funzionamento del carosello;
-// 8. attivo i bottoni con le funzioni create.
-
-
 
 // 1.
 const containerSlider = document.querySelector(".images");
@@ -79,20 +69,20 @@ buttonTop.classList.add("hide");
 
 
 // 8.
+// 9.
 
 let interval;
 
 buttonBottom.addEventListener("click", function(){
  clearInterval(interval);
- interval = setInterval(nextImage, 1000);
+ interval = setInterval(nextImage, 900);
 
 });
 
 buttonTop.addEventListener("click", function(){
-
+  clearInterval(interval);
+  interval = setInterval(prevImage, 900);
 });
-
-
 
 
 

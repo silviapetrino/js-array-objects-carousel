@@ -40,14 +40,25 @@ const imagesObj = [
 ];
 
 
+
+
 // 3.
 
 imagesObj.forEach(card => {
 
-  containerSlider.innerHTML += `<img src="${card.image}" class="w-100 h-100 object-fit-cover img-fluid hide item">`;
-  secondSlider.innerHTML += `<img src=${card.image} class="w-100 object-fit-cover h-20 thumb">`
+  containerSlider.innerHTML += `
 
- 
+  <div class="card-sp w-100 h-100 hide item">
+  <img src="${card.image}" class="w-100 h-100 object-fit-cover img-fluid">
+  <p class="text text-white">${card.text}</p>
+  </div>
+  `;
+
+
+
+  secondSlider.innerHTML += `<img src=${card.image} class="w-100 object-fit-cover h-20 thumb">`
+  
+
 });
 
 
@@ -73,9 +84,6 @@ buttonTop.classList.add("hide");
 buttonBottom.addEventListener("click", nextImage);
 
 buttonTop.addEventListener("click", prevImage);
-
-
-
 
 
 
@@ -122,7 +130,4 @@ function prevImage() {
 }
 
 
-function stopInterval() {
-  clearInterval(interval);
-}
 

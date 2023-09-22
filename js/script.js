@@ -1,11 +1,13 @@
+
 // 1. prendo l'elemento in cui andrò a stampare l'array;
 // 2. creo un array di oggetti;
-// 3. Con l'utilizzo del ciclo for Each, stampo gli oggetti in pagina;
+// 3. Con l'utilizzo del ciclo for Each, stampo gli oggetti in pagina dopo aver aggiungo gli elementi una struttura card (img+txt);
 // 4. introduco il contatore per tener traccia della posizione dell'immagine;
 // 5. rimuovo la classe hide dalla prima immagine del carosello, aggiungo la classe active a all'immagine della thumb;
 // 6. inserisco i bottoni;
 // 7. creo le funzioni per il funzionamento del carosello;
 // 8. attivo i bottoni con le funzioni create.
+
 
 
 // 1.
@@ -54,11 +56,8 @@ imagesObj.forEach(card => {
   </div>
   `;
 
-
-
   secondSlider.innerHTML += `<img src=${card.image} class="w-100 object-fit-cover h-20 thumb">`
   
-
 });
 
 
@@ -81,11 +80,17 @@ buttonTop.classList.add("hide");
 
 // 8.
 
-buttonBottom.addEventListener("click", nextImage);
+let interval;
 
-buttonTop.addEventListener("click", prevImage);
+buttonBottom.addEventListener("click", function(){
+ clearInterval(interval);
+ interval = setInterval(nextImage, 2000);
 
+});
 
+buttonTop.addEventListener("click", function(){
+  
+});
 
 
 

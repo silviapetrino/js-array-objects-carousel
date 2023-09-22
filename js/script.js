@@ -1,23 +1,20 @@
-// js-array-objects-carousel
-// Riprendiamo l’esercizio carosello e rifacciamolo, questa volta usando gli oggetti. Alla slide aggiungere un titolo e un testo Bonus 1: Sperimentiamo attraverso l’uso delle timing functions anche una funzionalità di scorrimento al nostro carosello:al click di un bottone o già dall’inizio possiamo far partire, ad intervalli di tempo a piacere, lo scorrimento delle immagini disponibili nel carosello stesso.
-
-// Bonus 2: E se volessi un bottone per invertire la “direzione” del carosello?
-
-// Bonus 3: Al click della thumb cambia l’immagine attiva
-
-// Imposto un markup statico;
-// Creo un array di oggetti con i dati forniti;
-// Con l'utilizzo del ciclo for Each, stampo gli oggetti in pagina;
+// 1. prendo l'elemento in cui andrò a stampare l'array;
+// 2. creo un array di oggetti;
+// 3. Con l'utilizzo del ciclo for Each, stampo gli oggetti in pagina;
+// 4. introduco il contatore per tener traccia della posizione dell'immagine;
+// 5. rimuovo la classe hide dalla prima immagine del carosello, aggiungo la classe active a all'immagine della thumb;
+// 6. inserisco i bottoni;
+// 7. creo le funzioni per il funzionamento del carosello;
+// 8. attivo i bottoni con le funzioni create.
 
 
-
-// 1. prendo l'elemento in cui andrò a stampare l'array 
+// 1.
 const containerSlider = document.querySelector(".images");
+const secondSlider = document.querySelector(".second-carousel");
 
 
 
-// 2. creo un array di oggetti 
-
+// 2.
 const imagesObj = [
   {
       image: "img/01.webp",
@@ -43,29 +40,35 @@ const imagesObj = [
 ];
 
 
-// 2. Con l'utilizzo del ciclo for Each, stampo gli oggetti in pagina;
+// 3.
 
 imagesObj.forEach(card => {
 
-  containerSlider.innerHTML += `<img src="${card.image}" class="w-100 h-100 object-fit-cover img-fluid hide item">`
+  containerSlider.innerHTML += `<img src="${card.image}" class="w-100 h-100 object-fit-cover img-fluid hide item">`;
+  secondSlider.innerHTML += `<img src=${card.image} class="w-100 object-fit-cover h-20 thumb">`
 
  
 });
 
 
-//3. rimuovo la classe hide dalla prima immagine 
+ //4. 
+let counter = 0;
+
+//5. 
 
 let imagesCollection = document.getElementsByClassName("item");
-imagesCollection[0].classList.remove("hide");
+imagesCollection[counter].classList.remove("hide");
+let thumbCollection = document.getElementsByClassName("thumb");
+thumbCollection[counter].classList.add("active");
 
-//4. inserisco i bottoni
+//6. 
 
 const buttonTop = document.querySelector(".button-top");
 const buttonBottom = document.querySelector(".button-bottom");
-//  il bottoneTop di default è nascosto
 buttonTop.classList.add("hide");
 
-let counter = 0;
+
+// 8.
 
 buttonBottom.addEventListener("click", nextImage);
 
@@ -84,27 +87,33 @@ buttonTop.addEventListener("click", prevImage);
 
 // ********** funzioni **********************
 
+// 7.
+
 function nextImage() {
 
-  buttonTop.classList.remove("hide");
+  for(i = 0; i < thumbCollection.length; i++) {
+    thumbCollection[counter + 1].classList.add("active");
+    thumbCollection[i].classList.remove("active");
+  }
 
-  imagesCollection[counter].classList.add("hide");
-
-  counter++;
-
-  if (counter === imagesCollection.length - 1) buttonBottom.classList.add("hide")
-
-  imagesCollection[counter].classList.remove("hide");
+    buttonTop.classList.remove("hide");
+    imagesCollection[counter].classList.add("hide");
+    counter++;
+    if (counter === imagesCollection.length - 1) buttonBottom.classList.add("hide")
+    imagesCollection[counter].classList.remove("hide");
 
 }
 
 
-
 function prevImage() {
-  imagesCollection[counter].classList.add("hide");
-       // decremento il contatore 
-  counter--;
   
+  for(i = 0; i < thumbCollection.length; i++) {
+    thumbCollection[counter - 1].classList.add("active");
+    thumbCollection[i].classList.remove("active");
+  }
+
+  imagesCollection[counter].classList.add("hide");
+  counter--;
   if (counter === 0) {
     buttonTop.classList.add("hide");
     buttonBottom.classList.remove("hide");
@@ -113,5 +122,7 @@ function prevImage() {
 }
 
 
-
+function stopInterval() {
+  clearInterval(interval);
+}
 

@@ -21,6 +21,7 @@
   position: absolute;
   bottom: 10px;
   right: 30%;
+  background-color: rgba(19, 18, 18, 0.6);
 }
 
 .second-carousel img.active {
